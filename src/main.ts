@@ -19,13 +19,11 @@ async function run(): Promise<void> {
             throw new Error("Trigger event not supported.");
         }
 
-        throw new Error(JSON.stringify(github.context.graphqlUrl));
         //get payload
         const payload = github.context.payload;
 
         //get actor
         const actor = github.context.actor;
-
 
         //get envs
         const telegram_token = process.env.TELEGRAM_TOKEN;
@@ -73,10 +71,11 @@ async function run(): Promise<void> {
         let message: any = null;
 
         let data: any;
+        throw new Error(JSON.stringify(github.context.issue));
         // throw new Error(
         //     JSON.stringify([payload?.pull_request?._links.commits, payload?.pull_request?._links.comments])
         // );
-        throw new Error(JSON.stringify([payload, payload.commits]));
+        // throw new Error(JSON.stringify([payload, payload.commits]));
         //elaborate event
         switch (event) {
             case "pull_request":

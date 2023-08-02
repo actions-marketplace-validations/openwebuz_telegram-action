@@ -55,7 +55,6 @@ function run() {
             if (!Utils_1.default.in_array(event, ["push", "release", "pull_request"])) {
                 throw new Error("Trigger event not supported.");
             }
-            throw new Error(JSON.stringify(github.context.graphqlUrl));
             //get payload
             const payload = github.context.payload;
             //get actor
@@ -88,10 +87,11 @@ function run() {
             //initialize message
             let message = null;
             let data;
+            throw new Error(JSON.stringify(github.context.issue));
             // throw new Error(
             //     JSON.stringify([payload?.pull_request?._links.commits, payload?.pull_request?._links.comments])
             // );
-            throw new Error(JSON.stringify([payload, payload.commits]));
+            // throw new Error(JSON.stringify([payload, payload.commits]));
             //elaborate event
             switch (event) {
                 case "pull_request":
