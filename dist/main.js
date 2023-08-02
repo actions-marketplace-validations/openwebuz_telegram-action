@@ -87,7 +87,6 @@ function run() {
             //initialize message
             let message = null;
             let data;
-            throw new Error(JSON.stringify(github.context.issue));
             // throw new Error(
             //     JSON.stringify([payload?.pull_request?._links.commits, payload?.pull_request?._links.comments])
             // );
