@@ -1,6 +1,7 @@
 enum PullRequestMessage {
-    opened = "🆕 Pull request opened",
-    closed = "❌ Pull request closed",
+    opened = "🆕 Pull request",
+    closed = "❌ Pull request",
+    reopened = "❗️ Pull request",
 }
 
 export default PullRequestMessage;

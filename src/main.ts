@@ -64,21 +64,18 @@ async function run(): Promise<void> {
             throw new Error("payload.repository is undefined");
         }
 
-        const repo_name = payload.repository.full_name;
+        const repo_name = payload?.repository?.full_name;
         const repo_url = `https://github.com/${repo_name}`;
 
         //initialize message
         let message: any = null;
 
         let data: any;
-        throw new Error(
-            JSON.stringify([payload?.pull_request?._links.commits, payload?.pull_request?._links.comments])
-        );
-        //elaborate event
+
         switch (event) {
             case "pull_request":
                 data = {
-                    title: payload?.pull_request?.title,
+                    description: payload?.pull_request?.body,
                     repo_name: payload?.pull_request?.user.login,
                     branch: payload?.pull_request?.head.ref,
                     pull_req_url: payload?.pull_request?.html_url,
