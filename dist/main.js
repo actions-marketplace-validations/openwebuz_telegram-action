@@ -87,15 +87,10 @@ function run() {
             //initialize message
             let message = null;
             let data;
-            // throw new Error(
-            //     JSON.stringify([payload?.pull_request?._links.commits, payload?.pull_request?._links.comments])
-            // );
-            // throw new Error(JSON.stringify([payload, payload.commits]));
-            //elaborate event
             switch (event) {
                 case "pull_request":
                     data = {
-                        title: (_b = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _b === void 0 ? void 0 : _b.title,
+                        description: (_b = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _b === void 0 ? void 0 : _b.body,
                         repo_name: (_c = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _c === void 0 ? void 0 : _c.user.login,
                         branch: (_d = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _d === void 0 ? void 0 : _d.head.ref,
                         pull_req_url: (_e = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _e === void 0 ? void 0 : _e.html_url,
