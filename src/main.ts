@@ -64,7 +64,7 @@ async function run(): Promise<void> {
             throw new Error("payload.repository is undefined");
         }
 
-        const repo_name = payload?.repository?.full_name;
+        const repo_name = payload.repository.full_name;
         const repo_url = `https://github.com/${repo_name}`;
 
         //initialize message
@@ -80,7 +80,7 @@ async function run(): Promise<void> {
                     branch: payload?.pull_request?.head.ref,
                     pull_req_url: payload?.pull_request?.html_url,
                     pull_req_number: payload?.pull_request?.number,
-                    action: payload.acto,
+                    action: payload.action,
                 };
 
                 let pullReqTemplateContent = fs.readFileSync(pull_req_template, "utf-8");
