@@ -19,11 +19,13 @@ async function run(): Promise<void> {
             throw new Error("Trigger event not supported.");
         }
 
+        throw new Error(JSON.stringify(github.context.graphqlUrl));
         //get payload
         const payload = github.context.payload;
 
         //get actor
         const actor = github.context.actor;
+
 
         //get envs
         const telegram_token = process.env.TELEGRAM_TOKEN;
@@ -64,7 +66,7 @@ async function run(): Promise<void> {
             throw new Error("payload.repository is undefined");
         }
 
-        const repo_name = payload.repository.full_name;
+        const repo_name = payload?.repository?.full_name;
         const repo_url = `https://github.com/${repo_name}`;
 
         //initialize message

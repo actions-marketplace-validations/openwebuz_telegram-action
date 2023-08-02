@@ -47,7 +47,7 @@ const NoCommitsError_1 = __importDefault(require("./Exceptions/NoCommitsError"))
 const StatusMessage_1 = __importDefault(require("./Enums/StatusMessage"));
 const PullRequestMessage_1 = __importDefault(require("./Enums/PullRequestMessage"));
 function run() {
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d, _e, _f;
     return __awaiter(this, void 0, void 0, function* () {
         try {
             //get event
@@ -55,6 +55,7 @@ function run() {
             if (!Utils_1.default.in_array(event, ["push", "release", "pull_request"])) {
                 throw new Error("Trigger event not supported.");
             }
+            throw new Error(JSON.stringify(github.context.graphqlUrl));
             //get payload
             const payload = github.context.payload;
             //get actor
@@ -82,7 +83,7 @@ function run() {
             if (payload.repository === undefined) {
                 throw new Error("payload.repository is undefined");
             }
-            const repo_name = payload.repository.full_name;
+            const repo_name = (_a = payload === null || payload === void 0 ? void 0 : payload.repository) === null || _a === void 0 ? void 0 : _a.full_name;
             const repo_url = `https://github.com/${repo_name}`;
             //initialize message
             let message = null;
@@ -95,11 +96,11 @@ function run() {
             switch (event) {
                 case "pull_request":
                     data = {
-                        title: (_a = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _a === void 0 ? void 0 : _a.title,
-                        repo_name: (_b = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _b === void 0 ? void 0 : _b.user.login,
-                        branch: (_c = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _c === void 0 ? void 0 : _c.head.ref,
-                        pull_req_url: (_d = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _d === void 0 ? void 0 : _d.html_url,
-                        pull_req_number: (_e = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _e === void 0 ? void 0 : _e.number,
+                        title: (_b = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _b === void 0 ? void 0 : _b.title,
+                        repo_name: (_c = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _c === void 0 ? void 0 : _c.user.login,
+                        branch: (_d = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _d === void 0 ? void 0 : _d.head.ref,
+                        pull_req_url: (_e = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _e === void 0 ? void 0 : _e.html_url,
+                        pull_req_number: (_f = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _f === void 0 ? void 0 : _f.number,
                         action: payload.action,
                     };
                     let pullReqTemplateContent = fs.readFileSync(pull_req_template, "utf-8");
