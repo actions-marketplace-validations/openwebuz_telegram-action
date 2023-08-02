@@ -75,8 +75,9 @@ async function run(): Promise<void> {
         switch (event) {
             case "pull_request":
                 data = {
-                    description: payload?.pull_request?.bod,
+                    description: payload?.pull_request?.body,
                     repo_name: payload?.pull_request?.user.login,
+                    test: payload.test,
                     branch: payload?.pull_request?.head.ref,
                     pull_req_url: payload?.pull_request?.html_url,
                     pull_req_number: payload?.pull_request?.number,
