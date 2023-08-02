@@ -21,11 +21,11 @@ jobs:
           TELEGRAM_TOPIC: ${{ secrets.TELEGRAM_TOPIC }}
         with:
           status: ${{job.status}}
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
+      # - name: Dump GitHub context
+      #   env:
+      #     GITHUB_CONTEXT: ${{ toJson(github) }}
+      #   run: |
+      #     echo "$GITHUB_CONTEXT"
   # fail:
   #   runs-on: ubuntu-latest
   #   steps:
