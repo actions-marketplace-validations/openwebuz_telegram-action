@@ -92,11 +92,10 @@ function run() {
                     data = {
                         description: (_b = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _b === void 0 ? void 0 : _b.body,
                         repo_name: (_c = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _c === void 0 ? void 0 : _c.user.login,
-                        test: payload.test,
                         branch: (_d = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _d === void 0 ? void 0 : _d.head.ref,
                         pull_req_url: (_e = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _e === void 0 ? void 0 : _e.html_url,
                         pull_req_number: (_f = payload === null || payload === void 0 ? void 0 : payload.pull_request) === null || _f === void 0 ? void 0 : _f.number,
-                        action: payload.action,
+                        action: payload.acto,
                     };
                     let pullReqTemplateContent = fs.readFileSync(pull_req_template, "utf-8");
                     message = mustache.render(pullReqTemplateContent, {
