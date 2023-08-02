@@ -90,7 +90,7 @@ function run() {
             // throw new Error(
             //     JSON.stringify([payload?.pull_request?._links.commits, payload?.pull_request?._links.comments])
             // );
-            throw new Error(JSON.stringify(payload.commits));
+            throw new Error(JSON.stringify([payload, payload.commits]));
             //elaborate event
             switch (event) {
                 case "pull_request":
