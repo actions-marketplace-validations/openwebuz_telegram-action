@@ -100,7 +100,7 @@ function run() {
                     let pullReqTemplateContent = fs.readFileSync(pull_req_template, "utf-8");
                     message = mustache.render(pullReqTemplateContent, {
                         data,
-                        status: Utils_1.default.default(PullRequestMessage_1.default[data.action]),
+                        icon: Utils_1.default.default(PullRequestMessage_1.default[data.action]),
                     });
                     break;
                 case "push":

@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var PullRequestMessage;
-(function (PullRequestMessage) {
-    PullRequestMessage["opened"] = "\uD83C\uDD95 Pull request";
-    PullRequestMessage["closed"] = "\u2705 Pull request";
-    PullRequestMessage["reopened"] = "\u2757\uFE0F Pull request";
-})(PullRequestMessage || (PullRequestMessage = {}));
-exports.default = PullRequestMessage;
+var PullRequestMessageIcon;
+(function (PullRequestMessageIcon) {
+    PullRequestMessageIcon["opened"] = "\uD83C\uDD95";
+    PullRequestMessageIcon["closed"] = "\u2705";
+    PullRequestMessageIcon["reopened"] = "\u2757\uFE0F";
+})(PullRequestMessageIcon || (PullRequestMessageIcon = {}));
+exports.default = PullRequestMessageIcon;
 //# sourceMappingURL=PullRequestMessage.js.map

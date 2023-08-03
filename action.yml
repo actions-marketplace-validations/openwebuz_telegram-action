@@ -8,6 +8,9 @@ inputs:
   release_template:
     required: false
     description: 'Release message template'
+  pull_req_template:
+    required: false
+    description: 'Pull request message template'
   status:
     required: false
     description: 'Job status'

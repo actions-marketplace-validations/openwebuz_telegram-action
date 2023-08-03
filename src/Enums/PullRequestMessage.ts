@@ -1,7 +1,7 @@
-enum PullRequestMessage {
-    opened = "🆕 Pull request",
-    closed = "✅ Pull request",
-    reopened = "❗️ Pull request",
+enum PullRequestMessageIcon {
+    opened = "🆕",
+    closed = "✅",
+    reopened = "❗️",
 }
 
-export default PullRequestMessage;
+export default PullRequestMessageIcon;

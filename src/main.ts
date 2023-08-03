@@ -8,7 +8,7 @@ import * as path from "path";
 import Utils from "./Support/Utils";
 import NoCommitsError from "./Exceptions/NoCommitsError";
 import StatusMessage from "./Enums/StatusMessage";
-import PullRequestMessage from "./Enums/PullRequestMessage";
+import PullRequestMessageIcon from "./Enums/PullRequestMessage";
 
 async function run(): Promise<void> {
     try {
@@ -87,7 +87,7 @@ async function run(): Promise<void> {
 
                 message = mustache.render(pullReqTemplateContent, {
                     data,
-                    status: Utils.default(PullRequestMessage[data.action]),
+                    icon: Utils.default(PullRequestMessageIcon[data.action]),
                 });
                 break;
             case "push":
