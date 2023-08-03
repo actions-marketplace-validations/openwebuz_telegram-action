@@ -11,6 +11,8 @@ on:
   push:
   release:
     types: [published]
+  pull_request:
+    types: [opened, closed, reopened]
 
 jobs:
   notify:
@@ -18,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send message to Telegram
-        uses: Lukasss93/telegram-action@v2
+        uses: openwebuz/telegram-action@v1
         env:
           TELEGRAM_TOKEN: ${{ secrets.telegram_token }}
           TELEGRAM_CHAT: ${{ secrets.telegram_chat }}
